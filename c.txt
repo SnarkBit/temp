@@ -1,0 +1,20 @@
+nano /usr/local/bin/start-hyprland
+
+#!/bin/sh
+
+# Set session type
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=Hyprland
+export XDG_CURRENT_DESKTOP=Hyprland
+
+# Wayland-specific environment variables
+export QT_QPA_PLATFORM=wayland
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Execute Hyprland
+exec Hyprland
+
+nano /etc/greetd/config.toml
+
+command = "tuigreet --cmd /usr/local/bin/start-hyprland"
